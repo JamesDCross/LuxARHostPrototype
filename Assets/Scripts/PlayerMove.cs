@@ -7,6 +7,8 @@ public class PlayerMove : NetworkBehaviour {
 
 	public float speed = 3.0f;   // units per second
     public bool moveByGPS = true;  // True of GPS drives position, else use keyboard/gyro input
+    public bool interpolateOn = true; // True if we are attempting interpolations
+                                      // This may be temporary, as perhaps always should do it.
     public bool showDebug = false;
 	public GameObject bulletPrefab;
 	public Transform bulletSpawn;
@@ -104,10 +106,23 @@ public class PlayerMove : NetworkBehaviour {
                     {
                         SetColor(Color.red);
                     }
+
                     // Set position to mapped GPS location
-                    // TODO: probably need some interpolation
-                    transform.position = worldpos;
-                    
+                    if (interpolateOn)
+                    {
+                        // Smooth things out with some interpolation. Note that 
+                        // this relies upon a fixed speed parameter, and this will
+                        // probably only work for demo. Might need a dynamic speed
+                        // value, or a different interpolation approach altogether.
+
+                        // The step size is equal to speed times frame time.
+                        float step = speed * Time.deltaTime;
+                        // Move our position a step closer to the target.
+                        transform.position = Vector3.MoveTowards(transform.position, worldpos, step);
+                    }
+                    else {
+                        transform.position = worldpos;
+                    }
                 }
             }
             else
