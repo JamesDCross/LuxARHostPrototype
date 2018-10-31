@@ -224,7 +224,7 @@ public class PlayerMove : NetworkBehaviour {
     public override void OnStartLocalPlayer()
     {
         //base.OnStartLocalPlayer();
-        SetColor(Color.blue);
+        //SetColor(Color.blue);
 	}
 
     public void SetColor (Color newcolor)

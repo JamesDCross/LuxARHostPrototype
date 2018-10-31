@@ -436,7 +436,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.7452831
+        value: 0.8408718
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -445,7 +445,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.95238096
-        value: 0.10377356
+        value: 0.11112829
         inSlope: -0.7181605
         outSlope: -0.7181605
         tangentMode: 0
@@ -699,7 +699,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1740931000007046}
   serializedVersion: 5
   lengthInSec: 2
-  simulationSpeed: 2
+  simulationSpeed: 6
   stopAction: 0
   looping: 1
   prewarm: 0
@@ -1464,7 +1464,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 45
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1570,7 +1570,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
