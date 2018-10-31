@@ -457,7 +457,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.9921569, b: 0.3529412, a: 0.9372549}
+      key0: {r: 0.9528302, g: 0.079363726, b: 0.04045032, a: 0.9372549}
       key1: {r: 1, g: 1, b: 1, a: 0.85490197}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -673,6 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   moveByGPS: 1
+  interpolateOn: 1
   showDebug: 1
   bulletPrefab: {fileID: 1006856707282174, guid: cb72da8baac72413f9f460d51dd828eb,
     type: 2}
