@@ -143,8 +143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoNPCPrefab: {fileID: 1409950442360016, guid: 4b142423fb86e114bb62e0476742e3e1,
     type: 2}
-  numberOfNPCs: 50
-  spawnGroupSize: 5
+  numberOfNPCs: 5
+  spawnGroupSize: 1
   waitBeforeSpawn: 10
   spawnGroupWait: 10
 --- !u!114 &160909414
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_RunInBackground: 1
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
-  m_LogLevel: 2
+  m_LogLevel: 1
   m_PlayerPrefab: {fileID: 1262209255026400, guid: 9d52ecc2d20f10f4f90d70267db677a8,
     type: 2}
   m_AutoCreatePlayer: 1
@@ -388,7 +388,7 @@ MonoBehaviour:
   m_SpawnPrefabs:
   - {fileID: 1006856707282174, guid: cb72da8baac72413f9f460d51dd828eb, type: 2}
   - {fileID: 1409950442360016, guid: 4b142423fb86e114bb62e0476742e3e1, type: 2}
-  m_CustomConfig: 0
+  m_CustomConfig: 1
   m_MaxConnections: 4
   m_ConnectionConfig:
     m_PacketSize: 1440
