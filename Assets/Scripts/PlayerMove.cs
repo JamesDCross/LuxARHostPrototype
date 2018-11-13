@@ -60,6 +60,18 @@ public class PlayerMove : NetworkBehaviour {
             Debug.LogError("Unable to locate ArenaMapper component of Arena");
             return;
         }
+
+        if (isServer)
+        {
+            Debug.Log("Running as server");
+            return;
+        }
+        if (isLocalPlayer)
+        {
+            Camera.main.transform.position = this.transform.position - this.transform.forward * 5 + this.transform.up * 1;
+            Camera.main.transform.LookAt(this.transform.position);
+            Camera.main.transform.parent = this.transform;
+        }
     }
 
 	public void ResetMotion () {
