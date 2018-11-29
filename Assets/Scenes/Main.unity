@@ -144,7 +144,7 @@ MonoBehaviour:
   autoNPCPrefab: {fileID: 1409950442360016, guid: 4b142423fb86e114bb62e0476742e3e1,
     type: 2}
   numberOfNPCs: 100
-  spawnGroupSize: 10
+  spawnGroupSize: 4
   waitBeforeSpawn: 4
   spawnGroupWait: 4
 --- !u!114 &160909414
