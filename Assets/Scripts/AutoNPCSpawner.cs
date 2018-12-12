@@ -12,8 +12,11 @@ public class AutoNPCSpawner : NetworkBehaviour {
 
 	public override void OnStartServer()
 	{
-		// Rather than spawn all at once, we do a few at a time.
-		InvokeRepeating ("SpawnNPCs", waitBeforeSpawn, spawnGroupWait);
+        // Rather than spawn all at once, we do a few at a time.
+        if (numberOfNPCs > 0)
+        {
+            InvokeRepeating("SpawnNPCs", waitBeforeSpawn, spawnGroupWait);
+        }
 	}
 
 	void SpawnNPCs () {
