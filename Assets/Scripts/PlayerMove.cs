@@ -25,7 +25,7 @@ public class PlayerMove : NetworkBehaviour {
         if (Application.isMobilePlatform)
         {
             // Might not be the best place to do this, but OK for now.
-            Input.location.Start(5, 2);   // Need best accuracy. Try (1,1)?
+            Input.location.Start(1, 1);   // Need best accuracy. Try (1,1)?
 
             // Wait until service initializes
  /*           int maxWait = 20;
