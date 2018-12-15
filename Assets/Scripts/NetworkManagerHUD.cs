@@ -200,24 +200,28 @@ namespace UnityEngine.Networking
                 {
                     if (manager.matchInfo == null)
                     {
-                        if (manager.matches == null && !UnityEngine.Application.isMobilePlatform)
+                        if (manager.matches == null)
                         {
-                            // Don't let mobile playforms create Internet match
-                            if (GUI.Button(new Rect(xpos, ypos, 200, buttonHeight), "Create Internet Match"))
+                            if (!UnityEngine.Application.isMobilePlatform)
                             {
-                                manager.matchMaker.CreateMatch(manager.matchName, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);    
+                                // Don't let mobile playforms create Internet match
+                                if (GUI.Button(new Rect(xpos, ypos, 200, buttonHeight), "Create Internet Match"))
+                                {
+                                    manager.matchMaker.CreateMatch(manager.matchName, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
+                                }
+                                ypos += spacing;
+
+
+                                GUI.Label(new Rect(xpos, ypos, 100, buttonHeight), "Room Name:");
+                                manager.matchName = GUI.TextField(new Rect(xpos + 100, ypos, 100, buttonHeight), manager.matchName);
+                                ypos += spacing;
+
+                                ypos += 10;
                             }
-                            ypos += spacing;
-
-                            GUI.Label(new Rect(xpos, ypos, 100, buttonHeight), "Room Name:");
-                            manager.matchName = GUI.TextField(new Rect(xpos + 100, ypos, 100, buttonHeight), manager.matchName);
-                            ypos += spacing;
-
-                            ypos += 10;
 
                             if (GUI.Button(new Rect(xpos, ypos, 200, buttonHeight), "Find Internet Match"))
                             {
-                                manager.matchMaker.ListMatches(0, buttonHeight, "", false, 0, 0, manager.OnMatchList);
+                                 manager.matchMaker.ListMatches(0, buttonHeight, "", false, 0, 0, manager.OnMatchList);
                             }
                             ypos += spacing;
                         }
