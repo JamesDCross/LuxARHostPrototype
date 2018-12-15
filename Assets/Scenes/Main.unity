@@ -359,6 +359,7 @@ MonoBehaviour:
   offsetX: 0
   offsetY: 0
   buttonHeight: 60
+  showSelectMatchServer: 0
 --- !u!114 &1211043622
 MonoBehaviour:
   m_ObjectHideFlags: 0
