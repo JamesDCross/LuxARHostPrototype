@@ -13,10 +13,13 @@ namespace UnityEngine.Networking
     {
         public NetworkManager manager;
 
+        [Tooltip("Show user interface")]
         [SerializeField] public bool showGUI = true;
         [SerializeField] public int offsetX;
         [SerializeField] public int offsetY;
         [SerializeField] public int buttonHeight = 20;
+        [Tooltip("Allow selection of match servers")]
+        [SerializeField] public bool showSelectMatchServer = false; 
 
         // Runtime variable
         bool m_showServer = false;
@@ -73,6 +76,9 @@ namespace UnityEngine.Networking
         {
             if (!showGUI)
                 return;
+
+            // Scale button heighyt proportional to screen height
+            buttonHeight = Screen.height / 10;  
 
             int xpos = 10 + offsetX;
             int ypos = 40 + offsetY;
@@ -196,21 +202,26 @@ namespace UnityEngine.Networking
                     {
                         if (manager.matches == null)
                         {
-                            if (GUI.Button(new Rect(xpos, ypos, 200, buttonHeight), "Create Internet Match"))
+                            if (!UnityEngine.Application.isMobilePlatform)
                             {
-                                manager.matchMaker.CreateMatch(manager.matchName, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);    
+                                // Don't let mobile playforms create Internet match
+                                if (GUI.Button(new Rect(xpos, ypos, 200, buttonHeight), "Create Internet Match"))
+                                {
+                                    manager.matchMaker.CreateMatch(manager.matchName, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
+                                }
+                                ypos += spacing;
+
+
+                                GUI.Label(new Rect(xpos, ypos, 100, buttonHeight), "Room Name:");
+                                manager.matchName = GUI.TextField(new Rect(xpos + 100, ypos, 100, buttonHeight), manager.matchName);
+                                ypos += spacing;
+
+                                ypos += 10;
                             }
-                            ypos += spacing;
-
-                            GUI.Label(new Rect(xpos, ypos, 100, buttonHeight), "Room Name:");
-                            manager.matchName = GUI.TextField(new Rect(xpos + 100, ypos, 100, buttonHeight), manager.matchName);
-                            ypos += spacing;
-
-                            ypos += 10;
 
                             if (GUI.Button(new Rect(xpos, ypos, 200, buttonHeight), "Find Internet Match"))
                             {
-                                manager.matchMaker.ListMatches(0, buttonHeight, "", false, 0, 0, manager.OnMatchList);
+                                 manager.matchMaker.ListMatches(0, buttonHeight, "", false, 0, 0, manager.OnMatchList);
                             }
                             ypos += spacing;
                         }
@@ -234,29 +245,32 @@ namespace UnityEngine.Networking
                         }
                     }
 
-                    if (GUI.Button(new Rect(xpos, ypos, 200, buttonHeight), "Change MM server"))
+                    if (showSelectMatchServer)
                     {
-                        m_showServer = !m_showServer;
-                    }
-                    if (m_showServer)
-                    {
-                        ypos += spacing;
-                        if (GUI.Button(new Rect(xpos, ypos, 100, buttonHeight), "Local"))
+                        if (GUI.Button(new Rect(xpos, ypos, 200, buttonHeight), "Change MM server"))
                         {
-                            manager.SetMatchHost("localhost", 1337, false);
-                            m_showServer = false;
+                            m_showServer = !m_showServer;
                         }
-                        ypos += spacing;
-                        if (GUI.Button(new Rect(xpos, ypos, 100, buttonHeight), "Internet"))
+                        if (m_showServer)
                         {
-                            manager.SetMatchHost("mm.unet.unity3d.com", 443, true);
-                            m_showServer = false;
-                        }
-                        ypos += spacing;
-                        if (GUI.Button(new Rect(xpos, ypos, 100, buttonHeight), "Staging"))
-                        {
-                            manager.SetMatchHost("staging-mm.unet.unity3d.com", 443, true);
-                            m_showServer = false;
+                            ypos += spacing;
+                            if (GUI.Button(new Rect(xpos, ypos, 100, buttonHeight), "Local"))
+                            {
+                                manager.SetMatchHost("localhost", 1337, false);
+                                m_showServer = false;
+                            }
+                            ypos += spacing;
+                            if (GUI.Button(new Rect(xpos, ypos, 100, buttonHeight), "Internet"))
+                            {
+                                manager.SetMatchHost("mm.unet.unity3d.com", 443, true);
+                                m_showServer = false;
+                            }
+                            ypos += spacing;
+                            if (GUI.Button(new Rect(xpos, ypos, 100, buttonHeight), "Staging"))
+                            {
+                                manager.SetMatchHost("staging-mm.unet.unity3d.com", 443, true);
+                                m_showServer = false;
+                            }
                         }
                     }
 
