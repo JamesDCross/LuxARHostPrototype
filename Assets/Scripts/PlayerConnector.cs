@@ -16,7 +16,12 @@ public class PlayerConnector : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Proximity Detected!!");
+        Debug.Log("Objects collided!!");
         Debug.Log(other.name);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Objects parted");
     }
 }
