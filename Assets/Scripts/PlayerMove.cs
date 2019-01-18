@@ -242,6 +242,24 @@ public class PlayerMove : NetworkBehaviour {
 		}
 	}
 
+    public void SetTrailColor(Color newcolor)
+    {
+        // Sets particle start colour
+        GameObject p = this.transform.Find("Trail").gameObject;
+
+        if (p)
+        {
+            TrailRenderer trail = p.GetComponent<TrailRenderer>();
+
+            //var main = psys.main;
+            trail.startColor = newcolor;
+        }
+        else
+        {
+            Debug.LogError(string.Format("Unable to set trail colour - object not found."));
+        }
+    }
+
     [Command]
 	void CmdFire ()
 	{
