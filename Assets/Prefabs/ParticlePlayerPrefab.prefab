@@ -488,6 +488,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ffcaf3c040c57e4d857cd43f8406999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineConnectorPrefab: {fileID: 1530108384972012, guid: 1c9a0761841a555488988cd106843ab3,
+    type: 2}
+  lineTransform: {fileID: 0}
 --- !u!114 &114422512951245262
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerConnector : MonoBehaviour {
+public class PlayerConnector : NetworkBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public GameObject lineConnectorPrefab;
+    public Transform lineTransform;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -24,6 +28,18 @@ public class PlayerConnector : MonoBehaviour {
             Debug.Log("Arena hit");
             return;
         }
+
+        // Instantiate a line connector
+
+        if (lineConnectorPrefab != null)
+        {
+            var l = (GameObject)Instantiate(lineConnectorPrefab, Vector3.zero, Quaternion.identity);
+            
+            //l.GetComponent<LineConnector>().end1 = this.;
+            l.GetComponent<LineConnector>().end2 = other.transform;
+            Debug.Log("Connector created" + l);
+        }
+
         PlayerMove pm = GetComponent<PlayerMove>();
         if (pm)
         {
