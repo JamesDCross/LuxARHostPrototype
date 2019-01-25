@@ -22,7 +22,7 @@ public class LineConnector : MonoBehaviour {
             LineRenderer lr = GetComponent<LineRenderer>();
             if (lr != null)
             {
-                lr.SetPosition(1, end1  .position);
+                lr.SetPosition(0, end1.position);
             }
             else
             {

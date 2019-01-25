@@ -20,8 +20,8 @@ public class PlayerConnector : NetworkBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Objects collided!!");
-        Debug.Log(other.name);
+        //Debug.Log("Objects collided!!");
+        //Debug.Log(other.name);
 
         if (Equals(other.name, "Arena"))
         {
@@ -35,7 +35,7 @@ public class PlayerConnector : NetworkBehaviour {
         {
             var l = (GameObject)Instantiate(lineConnectorPrefab, Vector3.zero, Quaternion.identity);
             
-            //l.GetComponent<LineConnector>().end1 = this.;
+            l.GetComponent<LineConnector>().end1 = transform;
             l.GetComponent<LineConnector>().end2 = other.transform;
             Debug.Log("Connector created" + l);
         }
@@ -61,7 +61,7 @@ public class PlayerConnector : NetworkBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Objects parted");
+        // Debug.Log("Objects parted");
         if (Equals(other.name, "Arena"))
         {
             Debug.Log("Arena hit");
@@ -84,6 +84,5 @@ public class PlayerConnector : NetworkBehaviour {
                 Debug.LogError("Neither player nor NPC found!!");
             }
         }
-
     }
 }

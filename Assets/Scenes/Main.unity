@@ -145,7 +145,7 @@ MonoBehaviour:
     type: 2}
   numberOfNPCs: 60
   spawnGroupSize: 4
-  waitBeforeSpawn: 15
+  waitBeforeSpawn: 5
   spawnGroupWait: 4
 --- !u!114 &160909414
 MonoBehaviour:
