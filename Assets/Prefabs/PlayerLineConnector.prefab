@@ -117,14 +117,14 @@ LineRenderer:
   m_GameObject: {fileID: 1530108384972012}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 6b78a8a20394d4748b027def28610e3c, type: 2}
+  - {fileID: 2100000, guid: 758818637ee511542b4dc19016c3627a, type: 2}
   - {fileID: 2100000, guid: 758818637ee511542b4dc19016c3627a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -168,7 +168,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.013883919, g: 0.9811321, b: 0.019321932, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -176,7 +176,7 @@ LineRenderer:
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
+      ctime0: 32768
       ctime1: 65535
       ctime2: 0
       ctime3: 0
