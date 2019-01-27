@@ -5,7 +5,6 @@ using UnityEngine.Networking;
 
 public class PlayerConnector : NetworkBehaviour
 {
-
     public GameObject lineConnectorPrefab;
     public Transform lineTransform;
 
@@ -17,19 +16,11 @@ public class PlayerConnector : NetworkBehaviour
         lineMap = new Dictionary<Collider, GameObject>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Objects collided!!");
-        //Debug.Log(other.name);
-
         if (Equals(other.name, "Arena"))
         {
+            // Would probaly be better not making Arena collidable.
             Debug.Log("Arena hit");
             return;
         }
@@ -44,7 +35,6 @@ public class PlayerConnector : NetworkBehaviour
 
                 l.GetComponent<LineConnector>().end1 = transform;
                 l.GetComponent<LineConnector>().end2 = other.transform;
-                Debug.Log("Connector created" + l);
 
                 lineMap.Add(other, l);
             }
@@ -70,7 +60,6 @@ public class PlayerConnector : NetworkBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        // Debug.Log("Objects parted");
         if (Equals(other.name, "Arena"))
         {
             Debug.Log("Arena exit");
