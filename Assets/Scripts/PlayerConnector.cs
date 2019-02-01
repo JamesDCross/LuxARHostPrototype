@@ -39,23 +39,6 @@ public class PlayerConnector : NetworkBehaviour
                 lineMap.Add(other, l);
             }
         }
-        //PlayerMove pm = GetComponent<PlayerMove>();
-        //if (pm)
-        //{
-        //    pm.SetTrailColor(Color.blue);
-        //}
-        //else
-        //{
-        //    AutoNPCMotion am = GetComponent<AutoNPCMotion>();
-        //    if (am)
-        //    {
-        //        am.SetTrailColor(Color.blue);
-        //    }
-        //    else
-        //    {
-        //        Debug.LogError("Neither player nor NPC found!!");   
-        //    }
-        //}
     }
 
     private void OnTriggerExit(Collider other)
@@ -72,23 +55,5 @@ public class PlayerConnector : NetworkBehaviour
             Destroy(lineMap[other]);
             lineMap.Remove(other);
         }
-
-        //PlayerMove pm = GetComponent<PlayerMove>();
-        //if (pm)
-        //{
-        //    pm.SetTrailColor(Color.white);
-        //}
-        //else
-        //{
-        //    AutoNPCMotion am = GetComponent<AutoNPCMotion>();
-        //    if (am)
-        //    {
-        //        am.SetTrailColor(Color.white);
-        //    }
-        //    else
-        //    {
-        //        Debug.LogError("Neither player nor NPC found!!");
-        //    }
-        //}
     }
 }

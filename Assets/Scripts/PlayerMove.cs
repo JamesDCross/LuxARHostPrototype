@@ -25,26 +25,12 @@ public class PlayerMove : NetworkBehaviour {
         if (Application.isMobilePlatform)
         {
             // Might not be the best place to do this, but OK for now.
-            Input.location.Start(1, 1);   // Need best accuracy. Try (1,1)?
+            Input.location.Start(1, 1);   // Need best accuracy.
 
-            // Wait until service initializes
- /*           int maxWait = 20;
-            while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
-            {
-                yield return new WaitForSeconds(1);
-                maxWait--;
-            }
-            // Service didn't initialize in 20 seconds
-            if (maxWait < 1)
-            {
-                Debug.Log ("Timed out waiting for location services");
-            }
-*/
             if (Input.location.status == LocationServiceStatus.Failed)
             {
                 Debug.Log("Unable to start GPS tracker");
             }
-
         }
 
         GameObject temp = GameObject.Find("Arena");
@@ -95,8 +81,6 @@ public class PlayerMove : NetworkBehaviour {
                                                                    Input.location.lastData.longitude);
                     // Temp - colour the player based on whether inside the arena or
                     // not in order to test out the GPS to Game coordinate mapping
-
-                    Debug.Log(string.Format("GPS: {0} ", Input.location.lastData.timestamp));
 
                     if (arena.IsInsideArena(worldpos))
                     {
@@ -191,28 +175,6 @@ public class PlayerMove : NetworkBehaviour {
                                         Input.location.lastData.longitude);
             GUI.Label(new Rect(10, 200, 400, 60), text);
             Debug.Log(text);
-            /*
-            if (arena != null)
-            {
-                Vector3 worldpos = arena.GPStoArenaCoordinates(Input.location.lastData.latitude,
-                                                               Input.location.lastData.longitude);
-
-                text = string.Format("WLD: {0}, {1}", worldpos.x, worldpos.z);
-                GUI.Label(new Rect(10, 200, 400, 60), text);
-                Debug.Log(text);
-
-                if (arena.IsInsideArena(worldpos))
-                {
-                    GUI.backgroundColor = Color.green;
-                    GUI.Label(new Rect(10, 300, 400, 60), "Inside Arena");
-                }
-                else
-                {
-                    GUI.backgroundColor = Color.red;
-                    GUI.Label(new Rect(10, 300, 400, 60), "Outside Arena!");
-                }
-            }
-            */
         }
         else
         {
