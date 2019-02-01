@@ -8,12 +8,14 @@ public class PlayerConnector : NetworkBehaviour
     public GameObject lineConnectorPrefab;
     public Transform lineTransform;
 
-    Dictionary<Collider, GameObject> lineMap;
+    // Map of collider (other object) to the line object joining this to
+    // that collider.
+    Dictionary<GameObject, GameObject> lineMap;
 
     // Use this for initialization
     void Start()
     {
-        lineMap = new Dictionary<Collider, GameObject>();
+        lineMap = new Dictionary<GameObject, GameObject>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,7 +30,7 @@ public class PlayerConnector : NetworkBehaviour
         // Instantiate a line connector
         if (lineConnectorPrefab != null)
         {
-            if (!lineMap.ContainsKey(other))
+            if (!lineMap.ContainsKey(other.gameObject))
             {
                 // Only create a line if we are not already linked to this object
                 var l = (GameObject)Instantiate(lineConnectorPrefab, Vector3.zero, Quaternion.identity);
@@ -36,7 +38,7 @@ public class PlayerConnector : NetworkBehaviour
                 l.GetComponent<LineConnector>().end1 = transform;
                 l.GetComponent<LineConnector>().end2 = other.transform;
 
-                lineMap.Add(other, l);
+                lineMap.Add(other.gameObject, l);
             }
         }
     }
@@ -50,10 +52,10 @@ public class PlayerConnector : NetworkBehaviour
         }
 
         // Find line previously connected   
-        if (lineMap.ContainsKey(other))
+        if (lineMap.ContainsKey(other.gameObject))
         {
-            Destroy(lineMap[other]);
-            lineMap.Remove(other);
+            Destroy(lineMap[other.gameObject]);
+            lineMap.Remove(other.gameObject);
         }
     }
 }
