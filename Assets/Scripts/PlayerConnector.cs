@@ -12,6 +12,12 @@ public class PlayerConnector : NetworkBehaviour
     // that collider.
     Dictionary<GameObject, GameObject> lineMap;
 
+
+    public bool hasObjectinMap(GameObject other)
+    {
+        return lineMap.ContainsKey(other);
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -30,15 +36,24 @@ public class PlayerConnector : NetworkBehaviour
         // Instantiate a line connector
         if (lineConnectorPrefab != null)
         {
+            // Only create a line if we are not already linked to this object
+
+            // Firstly see if this object has the collider in its map.
             if (!lineMap.ContainsKey(other.gameObject))
             {
-                // Only create a line if we are not already linked to this object
-                var l = (GameObject)Instantiate(lineConnectorPrefab, Vector3.zero, Quaternion.identity);
+                // Secondly, check the other object does not have this
+                // one in its own map.
+                PlayerConnector p = other.gameObject.GetComponent<PlayerConnector>();
 
-                l.GetComponent<LineConnector>().end1 = transform;
-                l.GetComponent<LineConnector>().end2 = other.transform;
+                if (!p.hasObjectinMap(gameObject))
+                {
+                    var l = (GameObject)Instantiate(lineConnectorPrefab, Vector3.zero, Quaternion.identity);
 
-                lineMap.Add(other.gameObject, l);
+                    l.GetComponent<LineConnector>().end1 = transform;
+                    l.GetComponent<LineConnector>().end2 = other.transform;
+
+                    lineMap.Add(other.gameObject, l);
+                }
             }
         }
     }
