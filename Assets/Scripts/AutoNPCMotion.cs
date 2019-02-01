@@ -20,9 +20,12 @@ public class AutoNPCMotion : NetworkBehaviour {
 	private float speed = 4.0f;
 	private Vector3 startPos;
 
+    // Keep a reference to GPS->Game coordinate mapping object
+    private ArenaMapper arena = null;
+
     //private Color[] colors = {Color.red, Color.green, Color.}
 
-	void Start () {
+    void Start () {
         // Generate a bright color
         particleColor = Color.HSVToRGB(Random.Range(0.0f, 1.0f),
                                        Random.Range(0.0f, 1.0f),
@@ -31,7 +34,21 @@ public class AutoNPCMotion : NetworkBehaviour {
         trailColor = particleColor;
         trailColor.a = 1.0f;   // Solid trails only
 		ResetMotion ();
-	}
+
+        GameObject temp = GameObject.Find("Arena");
+        if (temp == null)
+        {
+            Debug.LogError("Arena object not found");
+            return;
+        }
+        arena = temp.GetComponent<ArenaMapper>();
+
+        if (arena == null)
+        {
+            Debug.LogError("Unable to locate ArenaMapper component of Arena");
+            return;
+        }
+    }
 		
 	private void ResetMotion () {
 		
@@ -40,6 +57,7 @@ public class AutoNPCMotion : NetworkBehaviour {
 	
 		Vector3 dir = transform.forward * howFarToMove;
 		targetPos = transform.position + dir;
+
 		startTime = Time.time;
 		startPos = transform.position;
 	}
@@ -60,6 +78,13 @@ public class AutoNPCMotion : NetworkBehaviour {
 
 			if (fractionTravelled <= 1.0f) {
 				transform.position = Vector3.Lerp (startPos, targetPos, fractionTravelled);
+                // If moved outside arena, bounce back in.
+                if (!arena.IsInsideArena(transform.position))
+                {
+                    transform.Rotate(0.0f, 180.0f, 0.0f);
+                    ResetMotion();
+                }
+
 			} else {
 				// Change direction
 				transform.Rotate (0.0f, Random.Range (-90.0f, 90.0f), 0.0f);
