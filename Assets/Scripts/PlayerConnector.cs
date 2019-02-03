@@ -42,7 +42,9 @@ public class PlayerConnector : NetworkBehaviour
             if (!lineMap.ContainsKey(other.gameObject))
             {
                 // Secondly, check the other object does not have this
-                // one in its own map.
+                // one in its own map (i.e. guard against the fact that both
+                // objects will get triggered by each other, but we only one one line
+                // created betweem them, not two).
                 PlayerConnector p = other.gameObject.GetComponent<PlayerConnector>();
 
                 if (!p.hasObjectinMap(gameObject))
