@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -730,103 +730,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &2011443050
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4175150692915734, guid: 1c9a0761841a555488988cd106843ab3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175150692915734, guid: 1c9a0761841a555488988cd106843ab3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175150692915734, guid: 1c9a0761841a555488988cd106843ab3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175150692915734, guid: 1c9a0761841a555488988cd106843ab3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175150692915734, guid: 1c9a0761841a555488988cd106843ab3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175150692915734, guid: 1c9a0761841a555488988cd106843ab3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175150692915734, guid: 1c9a0761841a555488988cd106843ab3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175150692915734, guid: 1c9a0761841a555488988cd106843ab3, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 120978605576449844, guid: 1c9a0761841a555488988cd106843ab3,
-        type: 2}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5f86ec6ff355e8549ae0062c45146588, type: 2}
-    - target: {fileID: 120978605576449844, guid: 1c9a0761841a555488988cd106843ab3,
-        type: 2}
-      propertyPath: m_Parameters.alignment
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 120978605576449844, guid: 1c9a0761841a555488988cd106843ab3,
-        type: 2}
-      propertyPath: m_Parameters.numCapVertices
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 120978605576449844, guid: 1c9a0761841a555488988cd106843ab3,
-        type: 2}
-      propertyPath: m_Parameters.generateLightingData
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 120978605576449844, guid: 1c9a0761841a555488988cd106843ab3,
-        type: 2}
-      propertyPath: m_LightProbeUsage
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 120978605576449844, guid: 1c9a0761841a555488988cd106843ab3,
-        type: 2}
-      propertyPath: m_Materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5f86ec6ff355e8549ae0062c45146588, type: 2}
-    - target: {fileID: 120978605576449844, guid: 1c9a0761841a555488988cd106843ab3,
-        type: 2}
-      propertyPath: m_Materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5f86ec6ff355e8549ae0062c45146588, type: 2}
-    - target: {fileID: 120978605576449844, guid: 1c9a0761841a555488988cd106843ab3,
-        type: 2}
-      propertyPath: m_Positions.Array.data[0].x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 120978605576449844, guid: 1c9a0761841a555488988cd106843ab3,
-        type: 2}
-      propertyPath: m_Positions.Array.data[1].x
-      value: 29.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 120978605576449844, guid: 1c9a0761841a555488988cd106843ab3,
-        type: 2}
-      propertyPath: m_Positions.Array.data[1].y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 120978605576449844, guid: 1c9a0761841a555488988cd106843ab3,
-        type: 2}
-      propertyPath: m_Loop
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1c9a0761841a555488988cd106843ab3, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &2118613775
 GameObject:
   m_ObjectHideFlags: 0
