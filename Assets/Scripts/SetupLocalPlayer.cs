@@ -24,9 +24,14 @@ public class SetupLocalPlayer : NetworkBehaviour {
         {
             // Set all components to chosen color
             // NB: We proably just want to set flare colour
-           // Renderer[] rends = GetComponentInChildren<Renderer>();
-           // foreach (Renderer r in rends)
-           //     r.material.color = playerColor;
+            // Renderer[] rends = GetComponentInChildren<Renderer>();
+            // foreach (Renderer r in rends)
+            //     r.material.color = playerColor;
+            PlayerMove p = this.GetComponent<PlayerMove>();
+            if (p)
+            {
+                p.SetColor(playerColor);
+            }
         }
 	}
 	

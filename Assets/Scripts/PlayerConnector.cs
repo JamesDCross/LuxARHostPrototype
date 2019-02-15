@@ -13,7 +13,7 @@ public class PlayerConnector : NetworkBehaviour
     Dictionary<GameObject, GameObject> lineMap;
 
 
-    public bool hasObjectinMap(GameObject other)
+    public bool hasObjectInMap(GameObject other)
     {
         return lineMap.ContainsKey(other);
     }
@@ -39,15 +39,18 @@ public class PlayerConnector : NetworkBehaviour
             // Only create a line if we are not already linked to this object
 
             // Firstly see if this object has the collider in its map.
+            Debug.Assert(other != null, "Null collider provided to OnTriggerEnter!");
+            Debug.Assert(other.gameObject != null, "other.gameobject should not be null");
+
             if (!lineMap.ContainsKey(other.gameObject))
             {
                 // Secondly, check the other object does not have this
                 // one in its own map (i.e. guard against the fact that both
-                // objects will get triggered by each other, but we only one one line
+                // objects will get triggered by each other, but we only want one line
                 // created betweem them, not two).
                 PlayerConnector p = other.gameObject.GetComponent<PlayerConnector>();
 
-                if (!p.hasObjectinMap(gameObject))
+                if (!p.hasObjectInMap(gameObject))
                 {
                     var l = (GameObject)Instantiate(lineConnectorPrefab, Vector3.zero, Quaternion.identity);
 
@@ -55,6 +58,9 @@ public class PlayerConnector : NetworkBehaviour
                     l.GetComponent<LineConnector>().end2 = other.transform;
 
                     lineMap.Add(other.gameObject, l);
+
+                    // Temp:
+                    NetworkServer.Spawn(l);
                 }
             }
         }
