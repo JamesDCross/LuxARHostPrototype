@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1211043622}
-  showGUI: 1
+  showGUI: 0
   offsetX: 0
   offsetY: 0
   buttonHeight: 60
@@ -390,6 +390,7 @@ MonoBehaviour:
   - {fileID: 1006856707282174, guid: cb72da8baac72413f9f460d51dd828eb, type: 2}
   - {fileID: 1409950442360016, guid: 4b142423fb86e114bb62e0476742e3e1, type: 2}
   - {fileID: 1530108384972012, guid: 1c9a0761841a555488988cd106843ab3, type: 2}
+  - {fileID: 1530108384972012, guid: ff4113ac7cbf24f4fbc0cc8a8b813f57, type: 2}
   m_CustomConfig: 1
   m_MaxConnections: 20
   m_ConnectionConfig:
