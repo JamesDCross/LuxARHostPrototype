@@ -15,6 +15,7 @@ public class PlayerConnector : NetworkBehaviour
 
     public bool hasObjectInMap(GameObject other)
     {
+        Debug.Assert(lineMap != null, "Linemap cannot be null!");
         return lineMap.ContainsKey(other);
     }
 
@@ -41,6 +42,7 @@ public class PlayerConnector : NetworkBehaviour
             // Firstly see if this object has the collider in its map.
             Debug.Assert(other != null, "Null collider provided to OnTriggerEnter!");
             Debug.Assert(other.gameObject != null, "other.gameobject should not be null");
+            Debug.Assert(lineMap != null, "Linemap must not be null!");
 
             if (!lineMap.ContainsKey(other.gameObject))
             {
@@ -60,7 +62,7 @@ public class PlayerConnector : NetworkBehaviour
                     lineMap.Add(other.gameObject, l);
 
                     // Temp:
-                    NetworkServer.Spawn(l);
+                    //NetworkServer.Spawn(l);
                 }
             }
         }
