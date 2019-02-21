@@ -31,6 +31,11 @@ namespace Prototype.NetworkLobby
             lobbyManager.StartHost();
         }
 
+        public void OnClickServer1()
+        {
+            ipInput.text = "192.168.0.2";
+        }
+
         public void OnClickJoin()
         {
             lobbyManager.ChangeTo(lobbyPanel);
