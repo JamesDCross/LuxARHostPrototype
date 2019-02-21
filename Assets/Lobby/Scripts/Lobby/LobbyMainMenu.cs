@@ -36,6 +36,11 @@ namespace Prototype.NetworkLobby
             ipInput.text = "192.168.0.2";
         }
 
+        public void OnClickServer2()
+        {
+            ipInput.text = "192.168.0.3";
+        }
+
         public void OnClickJoin()
         {
             lobbyManager.ChangeTo(lobbyPanel);
