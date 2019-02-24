@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 135273769150257890}
   - component: {fileID: 114405902280712476}
   - component: {fileID: 54667388115166924}
+  - component: {fileID: 114480286984097506}
   m_Layer: 0
   m_Name: ParticlePlayerPrefab
   m_TagString: Untagged
@@ -339,7 +340,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
@@ -504,6 +505,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   healthBar: {fileID: 0}
+--- !u!114 &114480286984097506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262209255026400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459ab8cbc0e7c41038f4de7089b964d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pname: lux player
+  playerColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &114702208260575796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -550,7 +564,7 @@ MonoBehaviour:
   speed: 10
   moveByGPS: 1
   interpolateOn: 1
-  showDebug: 1
+  showDebug: 0
   bulletPrefab: {fileID: 1006856707282174, guid: cb72da8baac72413f9f460d51dd828eb,
     type: 2}
   bulletSpawn: {fileID: 4734822112083328}
