@@ -85,7 +85,18 @@ public class Controller : MonoBehaviour {
 		// Move all the players
 		foreach (Player p in players) {
 			p.UpdatePosition ();
+            
 		}
+
+        // temp change player line connector (all)
+        if (Input.GetKey(KeyCode.C))
+        {
+            foreach (Player p in players)
+            {
+                p.avatar.GetComponent<PlayerConnector>().selectLinePrefab = 2;
+            }
+        }
+       
 
 		// If space key hit, then spawn a new player at mouse position
 		if (Input.GetKeyDown (KeyCode.Space)) {
