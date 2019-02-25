@@ -42,7 +42,7 @@ namespace Prototype.NetworkLobby
 
         public void OnClickServer2()
         {
-            ipInput.text = "192.168.0.3";
+            ipInput.text = "192.168.1.77";
         }
 
         public void OnClickJoin()
