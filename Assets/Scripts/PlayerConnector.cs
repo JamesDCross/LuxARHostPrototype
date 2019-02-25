@@ -5,11 +5,8 @@ using UnityEngine.Networking;
 
 public class PlayerConnector : NetworkBehaviour
 {
-    public List<GameObject> lineConnectorPrefabs;
+    public GameObject lineConnectorPrefab;
     public Transform lineTransform;
-
-    //Temp to change connect prefab
-    public int selectLinePrefab;
 
     // Map of collider (other object) to the line object joining this to
     // that collider.
@@ -26,8 +23,6 @@ public class PlayerConnector : NetworkBehaviour
     void Start()
     {
         lineMap = new Dictionary<GameObject, GameObject>();
-
-        selectLinePrefab = 0;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,7 +35,7 @@ public class PlayerConnector : NetworkBehaviour
         }
 
         // Instantiate a line connector
-        if (lineConnectorPrefabs[selectLinePrefab] != null)
+        if (lineConnectorPrefab != null)
         {
             // Only create a line if we are not already linked to this object
 
@@ -59,7 +54,7 @@ public class PlayerConnector : NetworkBehaviour
 
                 if (!p.hasObjectInMap(gameObject))
                 {
-                    var l = (GameObject)Instantiate(lineConnectorPrefabs[selectLinePrefab], Vector3.zero, Quaternion.identity);
+                    var l = (GameObject)Instantiate(lineConnectorPrefab, Vector3.zero, Quaternion.identity);
 
                     l.GetComponent<LineConnector>().end1 = transform;
                     l.GetComponent<LineConnector>().end2 = other.transform;
