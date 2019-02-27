@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class PlayerPanel : NetworkBehaviour {
+public class PlayerPanel : MonoBehaviour {
 
     protected Image panelImage;
 
@@ -14,9 +14,9 @@ public class PlayerPanel : NetworkBehaviour {
         // Turn off UI panel for player if in server mode
         panelImage = GetComponent<Image>();
 
-        if (!isServer)
+        if (!networkManager.isServer)
         {
-            // Disable if running on moile platform
+            // Disable if running as server only
 
             if (!panelImage)
             {
