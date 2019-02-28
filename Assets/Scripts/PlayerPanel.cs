@@ -13,7 +13,8 @@ public class PlayerPanel : MonoBehaviour {
     {
         // Turn off UI panel for player if in server mode
         panelImage = GetComponent<Image>();
-
+/*
+ * TODO - Work out how to determine if running as player or server
         if (!networkManager.isServer)
         {
             // Disable if running as server only
@@ -25,6 +26,7 @@ public class PlayerPanel : MonoBehaviour {
             }
             SetVisibility(false);
         }
+*/        
 
     }
 
