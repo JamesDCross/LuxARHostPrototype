@@ -14,6 +14,7 @@ namespace Prototype.NetworkLobby
 
         public InputField ipInput;
         public InputField matchNameInput;
+        public InputField npcsInput;    // # of NPC's the server creates
 
         public void OnEnable()
         {
@@ -24,6 +25,9 @@ namespace Prototype.NetworkLobby
 
             matchNameInput.onEndEdit.RemoveAllListeners();
             matchNameInput.onEndEdit.AddListener(onEndEditGameName);
+
+            npcsInput.onEndEdit.RemoveAllListeners();
+            npcsInput.onEndEdit.AddListener(onEditNPCs);
         }
 
         public void OnClickHost()
@@ -38,7 +42,7 @@ namespace Prototype.NetworkLobby
 
         public void OnClickServer2()
         {
-            ipInput.text = "192.168.0.3";
+            ipInput.text = "192.168.1.77";
         }
 
         public void OnClickJoin()
@@ -58,6 +62,9 @@ namespace Prototype.NetworkLobby
         {
             lobbyManager.ChangeTo(null);
             lobbyManager.StartServer();
+
+            // TODO: Need to set NPCs for server
+            //lobbyManager.ser
 
             lobbyManager.backDelegate = lobbyManager.StopServerClbk;
 
@@ -102,6 +109,11 @@ namespace Prototype.NetworkLobby
             {
                 OnClickCreateMatchmakingGame();
             }
+        }
+
+        void onEditNPCs(string text)
+        {
+
         }
 
     }
